@@ -44,16 +44,19 @@ Let's name the component in `App.js` to something more meaningful, like `MyList`
 Then, we'll replace the functional component with a class component and put the appropriate import statement at the top.
 
 ```js
-import React, { Component } from 'react'
-import './App.css'
+import React from 'react';
+import './App.css';
 
-class MyList extends Component {
-  render() {
-    return ()
-  }
+const MyList = () => {
+
+  return (
+    <div>
+
+    </div>
+  )
 }
 
-export default MyList
+export default MyList;
 ```
 
 ## Fix index.js to display MyList.
@@ -83,23 +86,22 @@ Now change the contents of the HTML to have a header and the start of a list.
 This looks like:
 
 ```js
-import React, { Component } from 'react'
-import './App.css'
+import React from 'react';
+import './App.css';
 
-class MyList extends Component {
-  render() {
-    return (
-      <div>
-        <h1> Things I should stop procrastinating:</h1>
-        <ul>
-          <li></li>
-        </ul>
-      </div>
-    )
-  }
+const MyList = () => {
+
+  return (
+    <div>
+      <h1>Things I should stop procrastinating:</h1>
+      <ul>
+        <li></li>
+      </ul>
+    </div>
+  )
 }
 
-export default MyList
+export default MyList;
 ```
 
 Now, our webpage displays an empty list.
@@ -114,36 +116,37 @@ Let's make a component for `ListItem`s. This component can simply render  `<li>M
 
 **ListItem.js**
 ```js
-import React, { Component } from 'react'
-import './App.css'
+import React from 'react';
 
-class ListItem extends Component {
-  render() {
-    return(<li>Make the list!</li>)
-  }
+const ListItem = () => {
+
+  return(
+    <li>Make the list!</li>
+  )
 }
 
-export default ListItem
+export default ListItem;
 ```
 
 **MyList.js**
 ```js
-import React, { Component } from 'react'
-import './App.css'
-import ListItem from './ListItem'
+import React from 'react';
+import './App.css';
+import ListItem from './ListItem';
 
-class MyList extends Component {
-  render() {
-    return(<div>
+const MyList = () => {
+
+  return (
+    <div>
       <h1>Things I should stop procrastinating:</h1>
       <ul>
         <ListItem />
       </ul>
-    </div>)
-  }
+    </div>
+  )
 }
 
-export default MyList
+export default MyList;
 ```
 
 At this point, our app looks like this:
@@ -158,51 +161,46 @@ Since we'll be looking at this for a while, let's make it less of an eyesore. Fe
 
 This is a great start - we've already nested components (`ListItem` inside of `MyList`). Now, let's add some props to make this useful and check that current list item off!
 
-Let's first just pass a prop into `ListItem` from `MyList`. We'll call the prop something simple, like `doThis`. I'm pretty hungry; I'll pass in a value of "buy ice cream."
+Let's first just pass a prop into `ListItem` from `MyList`. We'll call the prop something simple, like `task`. I'm pretty hungry; I'll pass in a value of "buy ice cream."
 
-Then, in `ListItem`, we'll add a list item that uses the `doThis` prop instead of the existing hard-coded text.
+Then, in `ListItem`, we'll add a list item that uses the `task` prop instead of the existing hard-coded text.
 
 Now, we have in `MyList.js`:
 ```js
-import React, { Component } from 'react'
-import './App.css'
-import ListItem from './ListItem'
+import React from 'react';
+import './App.css';
+import ListItem from './ListItem';
 
-class MyList extends Component {
-  render() {
-    return (
-      <div>
-        <h1>Things I should stop procrastinating:</h1>
-        <ul>
-          <ListItem task="Buy ice cream" />
-        </ul>
-      </div>
-    )
-  }
+const MyList = () => {
+
+  return (
+    <div>
+      <h1>Things I should stop procrastinating:</h1>
+      <ul>
+        <ListItem task="Buy ice cream"/>
+      </ul>
+    </div>
+  )
 }
 
-export default MyList
+export default MyList;
 ```
 
 Now that we've passed in a prop to `ListItem`, we need to call it in `ListItem.js`
-using `this.props`
+using `props`
 
 `ListItem.js` will now look like this:
 ```js
-import React, { Component } from 'react'
-import './App.css'
+import React from 'react';
 
-class ListItem extends Component {
-  render() {
-    return (
-      <div>
-        <li>{this.props.task}</li>
-      </div>
-    )
-  }
+const ListItem = (props) => {
+
+  return(
+    <li>{props.task}</li>
+  )
 }
 
-export default ListItem
+export default ListItem;
 ```
 
 Our app now looks like this:
@@ -262,12 +260,12 @@ ReactDOM.render(
 ```
 
 The next step is to use the `map` function to create an array of `<ListItem />`s, each with 
-its own `doThis` prop that represents a todo item from `theList`.
+its own `task` prop that represents a todo item from `theList`.
 
 
 Here is the `map` function call that will do this for us, which we'll put in the `MyList` component:
 ```js
-let todoItems = this.props.theList.map((item, index) => (
+let todoItems = props.theList.map((item, index) => (
   <ListItem task={item} key={index} />
 ))
 ```
@@ -275,40 +273,40 @@ The last step is to call the `todoItems` in the render function of `MyList` clas
 
 My final `MyList` component class looks like this:
 ```js
-class MyList extends Component {
-  render() {
-    let todoItems = this.props.theList.map((item, index) => {
-      return <ListItem task={item} key={index} />
-    })
-    
-    return (
-      <div>
-        <h1>Things I should stop procrastinating:</h1>
-        <ul>
-          {todoItems}
-        </ul>
-      </div>
-    )
-  }
+import React from 'react';
+import './App.css';
+import ListItem from './ListItem';
+
+const MyList = (props) => {
+  let todoItems = props.theList.map((item, index) => (
+    <ListItem task={item} key={index} />
+  ))
+
+  return (
+    <div>
+      <h1>Things I should stop procrastinating:</h1>
+      <ul>
+        {todoItems}
+      </ul>
+    </div>
+  )
 }
+
+export default MyList;
 ```
 
 And the final `ListItem.js`, which hasn't changed:
 ```js
-import React, { Component } from 'react';
-import './App.css';
+import React from 'react';
 
-class ListItem extends Component {
-  render() {
-    return (
-      <div>
-        <li>{this.props.task}</li>
-      </div>
-    )
-  }
+const ListItem = (props) => {
+
+  return(
+    <li>{props.task}</li>
+  )
 }
 
-export default ListItem
+export default ListItem;
 
 ```
 
