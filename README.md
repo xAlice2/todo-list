@@ -7,7 +7,7 @@ So, we've gone through all of the basics of React. To really hammer it home with
 
 This is what our list will look like when we're finished:
 
-![finished-list](https://raw.githubusercontent.com/WDI-SEA/react_state_exercises_global/master/images/todo-list-finished.pngg)
+![finished-list](https://raw.githubusercontent.com/WDI-SEA/react_state_exercises_global/master/images/todo-list-finished.png)
 
 Let's get started!
 
