@@ -188,6 +188,7 @@ export default ListItem;
 ```
 
 Our app now looks like this:
+
 ![list-preview](https://raw.githubusercontent.com/SEI802/react_state_exercises_global/main/images/todo-list-2.png?token=ADEJDCJFTGRM6IA3QUJYNETBIKGRM)
 
 
@@ -329,4 +330,5 @@ export default ListItem;
 ```
 
 Now what we have is:
+
 ![list-preview](https://raw.githubusercontent.com/SEI802/react_state_exercises_global/main/images/todo-list-3.png?token=ADEJDCI2EWIMZ3NBHSS43Z3BIKGQS)
