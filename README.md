@@ -1,9 +1,8 @@
-# ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) ToDo List Exercise
+# ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) React Todo List
 
 ## Review
 
-
-So, we've gone through all of the basics of React. To really hammer it home with practice, let's walk through complete creation of an app. This will be a to-do list, keeping track of everything we need to do for the day (after we finish this!). It's a lot, so we're going to want it to be editable.
+So, we've gone through all of the basics of `React`. To really hammer it home with practice, let's walk through complete creation of an app. This will be a to-do list, keeping track of everything we need to do for the day (after we finish this!). It's a lot, so we're going to want it to be editable.
 
 This is what our list will look like when we're finished:
 
@@ -138,7 +137,7 @@ export default MyList;
 
 At this point, our app looks like this:
 
-![list-preview](./images/todo-list-1.png)
+![list-preview](https://raw.githubusercontent.com/SEI802/react_state_exercises_global/main/images/todo-list-1.png?token=ADEJDCJIB4XJKNVYFTAEUYTBIKGUK)
 
 ## Side note - let's quickly format it a little more nicely!
 
@@ -189,7 +188,7 @@ export default ListItem;
 ```
 
 Our app now looks like this:
-![list-preview](./images/todo-list-2.png)
+![list-preview](https://raw.githubusercontent.com/SEI802/react_state_exercises_global/main/images/todo-list-2.png?token=ADEJDCJFTGRM6IA3QUJYNETBIKGRM)
 
 
 ## Third, render different items in an array.
@@ -330,4 +329,4 @@ export default ListItem;
 ```
 
 Now what we have is:
-![list-preview](./images/todo-list-3.png)
+![list-preview](https://raw.githubusercontent.com/SEI802/react_state_exercises_global/main/images/todo-list-3.png?token=ADEJDCI2EWIMZ3NBHSS43Z3BIKGQS)
